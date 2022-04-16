@@ -21,7 +21,7 @@ import net.javaguides.employeemanagement.model.User;
 public class UserDAO {
 	private String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
 	private String jdbcUsername = "root";
-	private String jdbcPassword = "rithvik99";
+	private String jdbcPassword = "splashlb";
 
 	private static final String INSERT_USERS_SQL = "INSERT INTO users" + "  (name, email, country) VALUES "
 			+ " (?, ?, ?);";
