@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
  pageEncoding="ISO-8859-1"%>
-    <%@page import="net.javaguides.employeemanagement.dao.*"%>
+    <%@page import="net.java.employeemanagement.dao.*"%>
         <!DOCTYPE html>
         <html>
 
@@ -11,7 +11,7 @@
 
         <body>
 
-            <jsp:useBean id="login" class="net.javaguides.employeemanagement.web.EmployeeLogin" />
+            <jsp:useBean id="login" class="net.java.employeemanagement.web.EmployeeLogin" />
 
             <jsp:setProperty property="*" name="login" />
 

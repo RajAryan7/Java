@@ -1,4 +1,4 @@
-package net.javaguides.employeemanagement.web;
+package net.java.employeemanagement.web;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,15 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.javaguides.employeemanagement.dao.UserDAO;
-import net.javaguides.employeemanagement.model.User;
+import net.java.employeemanagement.dao.UserDAO;
+import net.java.employeemanagement.model.User;
 
-/**
- * ControllerServlet.java
- * This servlet acts as a page controller for the application, handling all
- * requests from the user.
- * @email Ramesh Fadatare
- */
 
 @WebServlet("/")
 public class UserServlet extends HttpServlet {

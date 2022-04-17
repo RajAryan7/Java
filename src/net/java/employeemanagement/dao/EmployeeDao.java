@@ -1,11 +1,11 @@
-package net.javaguides.employeemanagement.dao;
+package net.java.employeemanagement.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import net.javaguides.employeemanagement.model.Employee;
+import net.java.employeemanagement.model.Employee;
 
 public class EmployeeDao {
 
@@ -17,11 +17,10 @@ public class EmployeeDao {
         int result = 0;
 
         Class.forName("com.mysql.jdbc.Driver");
-
         try (Connection connection = DriverManager
             .getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "splashlb");
 
-            // Step 2:Create a statement using connection object
+            
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
             preparedStatement.setString(1, employee.getFirstName());
             preparedStatement.setString(2, employee.getLastName());
@@ -31,11 +30,10 @@ public class EmployeeDao {
             preparedStatement.setString(6, employee.getContact());
 
             System.out.println(preparedStatement);
-            // Step 3: Execute the query or update query
+           
             result = preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            // process sql exception
             printSQLException(e);
         }
         return result;

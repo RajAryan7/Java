@@ -1,4 +1,4 @@
-package net.javaguides.employeemanagement.dao;
+package net.java.employeemanagement.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import net.javaguides.employeemanagement.web.EmployeeLogin;
+import net.java.employeemanagement.web.EmployeeLogin;
 
 public class EmployeeDaoLogin {
 	public boolean validate(EmployeeLogin employeedaologin) throws ClassNotFoundException {
@@ -17,7 +17,6 @@ public class EmployeeDaoLogin {
         try (Connection connection = DriverManager
         	.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "splashlb");
 
-            // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection
             .prepareStatement("select * from employee where username = ? and password = ? ")) {
             preparedStatement.setString(1, employeedaologin.getUsername());
@@ -28,7 +27,6 @@ public class EmployeeDaoLogin {
             status = rs.next();
 
         } catch (SQLException e) {
-            // process sql exception
             printSQLException(e);
         }
         return status;

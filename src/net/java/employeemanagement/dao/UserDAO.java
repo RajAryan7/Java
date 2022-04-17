@@ -1,4 +1,4 @@
-package net.javaguides.employeemanagement.dao;
+package net.java.employeemanagement.dao;
 
 import java.sql.Connection;
 
@@ -9,15 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.javaguides.employeemanagement.model.User;
+import net.java.employeemanagement.model.User;
 
-/**
- * AbstractDAO.java This DAO class provides CRUD database operations for the
- * table users in the database.
- * 
- * @author Ramesh Fadatare
- *
- */
 public class UserDAO {
 	private String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
 	private String jdbcUsername = "root";
@@ -40,10 +33,8 @@ public class UserDAO {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return connection;
@@ -51,7 +42,6 @@ public class UserDAO {
 
 	public void insertUser(User user) throws SQLException {
 		System.out.println(INSERT_USERS_SQL);
-		// try-with-resource statement will auto close the connection.
 		try (Connection connection = getConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
 			preparedStatement.setString(1, user.getfirst_name());
@@ -67,16 +57,11 @@ public class UserDAO {
 
 	public User selectUser(int id) {
 		User user = null;
-		// Step 1: Establishing a Connection
 		try (Connection connection = getConnection();
-				// Step 2:Create a statement using connection object
 				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
 			preparedStatement.setInt(1, id);
 			System.out.println(preparedStatement);
-			// Step 3: Execute the query or update query
 			ResultSet rs = preparedStatement.executeQuery();
-
-			// Step 4: Process the ResultSet object.
 			while (rs.next()) {
 				String first_name = rs.getString("first_name");
 				String last_name = rs.getString("last_name");
@@ -92,18 +77,13 @@ public class UserDAO {
 
 	public List<User> selectAllUsers() {
 
-		// using try-with-resources to avoid closing resources (boiler plate code)
 		List<User> users = new ArrayList<>();
-		// Step 1: Establishing a Connection
 		try (Connection connection = getConnection();
 
-				// Step 2:Create a statement using connection object
 			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
 			System.out.println(preparedStatement);
-			// Step 3: Execute the query or update query
 			ResultSet rs = preparedStatement.executeQuery();
 
-			// Step 4: Process the ResultSet object.
 			while (rs.next()) {
 				int id = rs.getInt("id");
 				String first_name = rs.getString("first_name");

@@ -1,4 +1,4 @@
-package net.javaguides.employeemanagement.web;
+package net.java.employeemanagement.web;
 
 import java.io.Serializable;
 

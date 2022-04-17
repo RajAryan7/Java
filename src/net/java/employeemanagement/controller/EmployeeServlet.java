@@ -1,4 +1,4 @@
-package net.javaguides.employeemanagement.controller;
+package net.java.employeemanagement.controller;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.javaguides.employeemanagement.dao.EmployeeDao;
-import net.javaguides.employeemanagement.model.Employee;
+import net.java.employeemanagement.dao.EmployeeDao;
+import net.java.employeemanagement.model.Employee;
 
 @WebServlet("/register.jsp")
 public class EmployeeServlet extends HttpServlet {
@@ -44,7 +44,6 @@ public class EmployeeServlet extends HttpServlet {
         try {
             employeeDao.registerEmployee(employee);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

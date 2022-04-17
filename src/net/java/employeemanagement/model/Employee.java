@@ -1,15 +1,9 @@
-package net.javaguides.employeemanagement.model;
+package net.java.employeemanagement.model;
 
 import java.io.Serializable;
 
-/**
- * JavaBean class used in jsp action tags.
- * @author Ramesh Fadatare
- */
 public class Employee implements Serializable {
-    /**
-     * 
-     */
+
     private static final long serialVersionUID = 1L;
     private String firstName;
     private String lastName;
